@@ -1,3 +1,4 @@
+
 <script>
     let a = 10;
     var b = 1;
@@ -37,7 +38,84 @@
     if (true) {
         tmp = '234';
     }
-    
+
+    // function bar(x = y, y =2) {
+    //     return [x, y];
+    // }
+    // bar();
+
+    function bar(x = 2, y = x) {
+        return [x, y];
+    }
+    bar();
+
+    console.log(bar());
+
+    // 块级作用域
+    var tmp = new Date();
+
+    function f(){
+        console.log(tmp); // undefined
+        if (true) {
+            var tmp = 'hello world';
+        }
+        console.log(tmp); // hello world
+    }
+
+    f();
+
+    var s = 'hello';
+
+    for (var i = 0; i < s.length; i++) {
+        console.log(s[i]);
+    }
+    console.log(i); // 5
+
+    function f1() {
+        let n = 5;
+        if (true) {
+            let n = 10;
+        }
+        console.log(n); // 5
+    }
+    f1();
+
+    {
+        let bb = 'secret';
+        function mm() {
+            return bb;
+        }
+    }
+    mm();
+    console.log(mm());
+
+
+
+
 </script>
+
+<!-- const -->
+<script>
+
+    import  Constants from './constants';
+
+    const PI = 3.1415
+    // PI = 3;
+
+    if (true) {
+        const MAX = 4;
+        console.log(MAX);
+    }
+
+    // foo地址不变 数据可以改变
+    const foo = {};
+    foo.prop = 123;
+    console.log(foo.prop);
+
+    console.log(Constants.A);
+
+</script>
+    
+
 
 
